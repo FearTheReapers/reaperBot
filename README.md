@@ -23,6 +23,6 @@ python3 ReaperBot.py
 ```
 To run the reaperbot. All three bots can be run in this fashion.
 
-##Replays and GIFs
+## Replays and GIFs
 
 In case you would just like to see the bots in action we have provided several replays of the genetic algorithm in action in the Genetic Bot 3 folder. The Gifs folder has a few gifs to illustrate the bot in action.
