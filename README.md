@@ -5,7 +5,7 @@ This is a Reaper Bot created using Genetic Algorithm to be "kill everyone" on St
 
 https://github.com/Dentosal/python-sc2
 
-# Contents of the Repository
+Contents of the Repository
 
 The Genetic algorithm is located in ReperBot.py it runs an iteration of the algorithm
 
