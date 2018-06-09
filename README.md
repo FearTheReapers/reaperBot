@@ -16,3 +16,13 @@ Qgrenadas.py is the grenade chaining sub problem.
 ## How to Run the Code
 
 The step-by-step process to run the code has been described below: -
+
+After installing the python-sc2 package navigate to your reaperBot directory and run the command
+```
+python3 ReaperBot.py
+```
+To run the reaperbot. All three bots can be run in this fashion.
+
+##Replays and GIFs
+
+In case you would just like to see the bots in action we have provided several replays of the genetic algorithm in action in the Genetic Bot 3 folder. The Gifs folder has a few gifs to illustrate the bot in action.
