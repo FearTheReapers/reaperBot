@@ -68,8 +68,10 @@ class Micro_Path_Bot(sc2.BotAI):
                         seed[2] = (random.randint(1,100)/100)
                         self.reapergenes[reaper.tag] = seed
                         #del v[v.index(max(v))]
+                        
             cg = ControlGroup(self.units(REAPER).idle)
             self.attack_groups.add(cg)
+            
         def  move_cost(self,other):
                 return 0 if self.value == '.' else 1
         def aStar(start, goal, grid):
@@ -109,6 +111,7 @@ class Micro_Path_Bot(sc2.BotAI):
                 barracks.random.position
             elif flag == 3:
                 cc.position
+                
         for cc in self.units(UnitTypeId.COMMANDCENTER).ready.noqueue:
             if self.can_afford(SCV) and self.workers.amount < 20 and cc.noqueue:
                 await self.do(cc.train(SCV))
@@ -120,13 +123,14 @@ class Micro_Path_Bot(sc2.BotAI):
         if self.supply_left < 2:
             if self.can_afford(SUPPLYDEPOT) and self.already_pending(SUPPLYDEPOT) < 2:
                 await self.build(SUPPLYDEPOT, near=cc.position.towards(self.game_info.map_center, 5))
-
+        
+        barracks = self.units(BARRACKS).ready
 #For building reapers
         if self.units(BARRACKS).amount < 3 or (self.minerals > 400 and self.units(BARRACKS).amount < 5):
             if self.can_afford(BARRACKS):
                 err = await self.build(BARRACKS, near=cc.position.towards(self.game_info.map_center, 5))
 
-            barracks = self.units(BARRACKS).ready
+        
         elif self.units(BARRACKS).ready.exists and self.units(REFINERY).ready.exists:
             if self.can_afford(REAPER) and barracks.noqueue:
                 await self.do(barracks.random.train(REAPER))
@@ -210,7 +214,7 @@ class Micro_Path_Bot(sc2.BotAI):
                             await self.do(reaper.move(path_finding()))
                         elif reaper.health < reaper.health_max:
                             flag = 2;
-                            await self.do(reaper.move(path_finding())
+                            await self.do(reaper.move(path_finding()))
                         elif reaper.is_idle:
                             await self.do(reaper.attack(target))
 
